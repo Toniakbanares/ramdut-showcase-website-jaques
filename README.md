@@ -1,73 +1,104 @@
-# Welcome to your Lovable project
+# RAMDUT - Portfolio Profissional
 
-## Project info
+## 🚀 Sobre o Projeto
 
-**URL**: https://lovable.dev/projects/4d85fe7a-b234-4edc-b4e8-4b6cb9105666
+Landing page moderna e responsiva para **RAMDUT**, empresa de **JaquesRD** - Programador especializado em desenvolvimento web e engenharia de prompts para IA.
 
-## How can I edit this code?
+### ✨ Características
 
-There are several ways of editing your application.
+- **Design Moderno**: Interface clean com gradientes e animações suaves
+- **Totalmente Responsivo**: Otimizado para todos os dispositivos
+- **Performance Otimizada**: Carregamento rápido e fluido
+- **SEO Otimizado**: Meta tags e estrutura semântica
+- **Redes Sociais Integradas**: Links diretos para todas as plataformas
 
-**Use Lovable**
+### 🛠️ Tecnologias Utilizadas
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4d85fe7a-b234-4edc-b4e8-4b6cb9105666) and start prompting.
+- **React 18** - Framework frontend moderno
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Framework CSS utilitário
+- **Shadcn/ui** - Componentes UI modernos
+- **Lucide React** - Ícones vetoriais
+- **Vite** - Build tool super rápido
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🎨 Design System
 
-**Use your preferred IDE**
+- **Cores Principais**: Azul tech (#3B82F6) e Verde accent (#22C55E)
+- **Gradientes Modernos**: Efeitos visuais profissionais
+- **Animações CSS**: Floating, pulse-glow, hover effects
+- **Tipografia**: Sistema de fontes hierárquico
+- **Dark Mode**: Design otimizado para tema escuro
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 📱 Seções da Landing Page
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Hero Section**: Apresentação principal com logo e redes sociais
+2. **Serviços**: Cards com os principais serviços oferecidos
+3. **Sobre**: Apresentação profissional detalhada
+4. **Footer**: Informações de contato e links
 
-Follow these steps:
+### 🔗 Redes Sociais
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **LinkedIn**: [Jaques Dutra](https://www.linkedin.com/in/jaques-dutra-14b805226)
+- **Instagram**: [@strklife](https://www.instagram.com/strklife)
+- **Facebook**: [Perfil](https://www.facebook.com/share/1C8XCz8wxk/)
+- **GitHub**: [@JaquesRD](https://github.com/JaquesRD)
+- **X (Twitter)**: [@jasu_sn](https://x.com/jasu_sn)
+- **TikTok**: [@strklife](https://www.tiktok.com/@strklife)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 📧 Contato
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **Email**: jasu.sn@hotmail.com
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 🚀 Deploy no GitHub Pages
+
+### Pré-requisitos
+- Conta no GitHub
+- Git instalado localmente
+- Node.js e npm instalados
+
+### Passos para Deploy
+
+1. **Criar Repositório no GitHub**
+   ```bash
+   # Nome sugerido: ramdut-portfolio
+   ```
+
+2. **Configurar GitHub Pages**
+   - Ir para Settings > Pages
+   - Source: Deploy from a branch
+   - Branch: gh-pages
+   - Folder: / (root)
+
+3. **Deploy Automático**
+   - O site será atualizado automaticamente a cada push
+   - URL: `https://[seu-usuario].github.io/ramdut-portfolio`
+
+### 📁 Estruturação de Arquivos para GitHub Pages
+
+```
+ramdut-portfolio/
+├── index.html
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── main.js
+│   └── img/
+│       └── logo.jpg
+├── README.md
+├── .gitignore
+└── package.json
 ```
 
-**Edit a file directly in GitHub**
+## 🎯 Próximos Passos
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Agora você está pronto para fazer o deploy! Me avise quando quiser continuar com as instruções detalhadas para:
 
-**Use GitHub Codespaces**
+1. Criar o repositório no GitHub
+2. Configurar o GitHub Pages
+3. Fazer o primeiro deploy
+4. Configurar domínio personalizado (opcional)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/4d85fe7a-b234-4edc-b4e8-4b6cb9105666) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Desenvolvido por JaquesRD - RAMDUT** | 2024

@@ -1,6 +1,7 @@
 import { Github, Linkedin, Instagram, Facebook, Twitter, Music, Mail, Code, Lightbulb, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ThemeToggle } from "@/components/theme-toggle";
 import ramdutLogo from "@/assets/ramdut-logo.jpg";
 
 const Index = () => {
@@ -63,6 +64,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Theme Toggle */}
+      <ThemeToggle />
+      
       {/* Hero Section */}
       <section className="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>

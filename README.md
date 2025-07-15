@@ -1,8 +1,9 @@
+
 # RAMDUT - Portfolio Profissional
 
 ## 🚀 Sobre o Projeto
 
-Landing page moderna e responsiva para **RAMDUT**, empresa de **JaquesRD** - Programador especializado em desenvolvimento web e engenharia de prompts para IA.
+Landing page moderna e responsiva para **RAMDUT**, empresa de **JaquesRD** - Programador especializado em desenvolvimento web e engenharia de prompt para IA.
 
 ### ✨ Características
 

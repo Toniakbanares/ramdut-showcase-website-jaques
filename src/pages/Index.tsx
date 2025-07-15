@@ -1,3 +1,4 @@
+
 import { Github, Linkedin, Instagram, Facebook, Twitter, Music, Mail, Code, Lightbulb, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -52,7 +53,7 @@ const Index = () => {
     },
     {
       icon: Lightbulb,
-      title: "Engenharia de Prompts",
+      title: "Engenharia de Prompt",
       description: "Otimização e criação de prompts eficazes para IA, maximizando resultados e produtividade."
     },
     {
@@ -89,7 +90,7 @@ const Index = () => {
               JaquesRD
             </div>
             <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Programador & Engenheiro de Prompts
+              Programador & Engenheiro de Prompt
               <br />
               <span className="text-gradient font-semibold">Transformando ideias em soluções digitais</span>
             </p>
@@ -166,7 +167,7 @@ const Index = () => {
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
               Sou um desenvolvedor apaixonado por tecnologia e inovação, especializado em criar 
-              soluções web modernas e eficientes. Com expertise em engenharia de prompts para IA, 
+              soluções web modernas e eficientes. Com expertise em engenharia de prompt para IA, 
               combino programação tradicional com as mais novas tecnologias de inteligência artificial 
               para entregar resultados excepcionais.
             </p>
@@ -182,7 +183,7 @@ const Index = () => {
       <footer className="py-12 border-t border-border">
         <div className="container mx-auto px-4 text-center">
           <div className="text-2xl font-bold text-gradient mb-4">RAMDUT</div>
-          <p className="text-muted-foreground mb-6">JaquesRD - Programador & Engenheiro de Prompts</p>
+          <p className="text-muted-foreground mb-6">JaquesRD - Programador & Engenheiro de Prompt</p>
           
           <div className="flex justify-center gap-4 mb-6">
             {socialLinks.map((social) => (

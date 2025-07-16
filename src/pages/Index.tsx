@@ -54,7 +54,7 @@ const Index = () => {
     {
       icon: Lightbulb,
       title: "Engenharia de Prompt",
-      description: "Otimização e criação de prompts eficazes para IA, maximizando resultados e produtividade."
+      description: "Otimização e criação de prompt eficazes para IA, maximizando resultados e produtividade."
     },
     {
       icon: Rocket,
@@ -78,7 +78,7 @@ const Index = () => {
             <div className="mb-8">
               <img 
                 src={ramdutLogo} 
-                alt="RAMDUT RD Logo" 
+                alt="RAMDUT RD Logo"
                 className="w-24 h-24 mx-auto rounded-full shadow-glow"
               />
             </div>

@@ -3,7 +3,7 @@ import { Github, Linkedin, Instagram, Facebook, Twitter, Music, Mail, Code, Ligh
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
-import ramdutLogo from "@/assets/ramdut-logo.jpg";
+import ramdutLogo from "@/assets/ramdut-logo-rd.jpg";
 
 const Index = () => {
   const socialLinks = [
@@ -78,7 +78,7 @@ const Index = () => {
             <div className="mb-8">
               <img 
                 src={ramdutLogo} 
-                alt="RAMDUT Logo" 
+                alt="RAMDUT RD Logo" 
                 className="w-24 h-24 mx-auto rounded-full shadow-glow"
               />
             </div>

@@ -3,7 +3,7 @@ import { Github, Linkedin, Instagram, Facebook, Twitter, Music, Mail, Code, Ligh
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
-import ramdutLogo from "@/assets/ramdut-logo-rd.jpg";
+import ramdutLogo from "@/assets/ramdut-logo-rc.jpg";
 
 const Index = () => {
   const socialLinks = [

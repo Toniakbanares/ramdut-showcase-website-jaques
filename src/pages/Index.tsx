@@ -3,6 +3,8 @@ import { Github, Linkedin, Instagram, Facebook, Twitter, Music, Mail, Code, Ligh
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AuthSection } from "@/components/AuthSection";
+import { Forum } from "@/components/Forum";
 import ramdutLogo from "@/assets/ramdut-logo-rd-clean.jpg";
 
 const Index = () => {
@@ -65,8 +67,23 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Theme Toggle */}
-      <ThemeToggle />
+      {/* Header */}
+      <header className="flex justify-between items-center p-6">
+        <div className="flex items-center gap-3">
+          <img 
+            src={ramdutLogo} 
+            alt="Ramdut Logo" 
+            className="w-12 h-12 object-contain rounded-lg"
+          />
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-chart-1 bg-clip-text text-transparent">
+            Ramdut
+          </h1>
+        </div>
+        <div className="flex items-center gap-4">
+          <AuthSection />
+          <ThemeToggle />
+        </div>
+      </header>
       
       {/* Hero Section */}
       <section className="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -176,6 +193,13 @@ const Index = () => {
               realidade digital com soluções personalizadas, design responsivo e performance otimizada.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Forum Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <Forum />
         </div>
       </section>
 

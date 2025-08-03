@@ -80,10 +80,12 @@ const Index = () => {
             Ramdut
           </h1>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <SearchWidget onSearch={(query) => console.log('Searching:', query)} />
           <AuthSection />
-          <ThemeToggle />
+          <div className="ml-2">
+            <ThemeToggle />
+          </div>
         </div>
       </header>
       

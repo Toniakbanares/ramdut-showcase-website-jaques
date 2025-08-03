@@ -69,7 +69,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="flex justify-between items-center p-6">
+      <header className="flex justify-between items-center p-4">
         <div className="flex items-center gap-3">
           <img 
             src={ramdutLogo} 

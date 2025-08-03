@@ -76,14 +76,14 @@ const Index = () => {
             alt="Ramdut Logo" 
             className="w-12 h-12 object-contain rounded-lg"
           />
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-chart-1 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
             Ramdut
           </h1>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <SearchWidget onSearch={(query) => console.log('Searching:', query)} />
           <AuthSection />
-          <div className="ml-2">
+          <div className="ml-6">
             <ThemeToggle />
           </div>
         </div>

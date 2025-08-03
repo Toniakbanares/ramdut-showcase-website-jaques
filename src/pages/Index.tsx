@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AuthSection } from "@/components/AuthSection";
 import { Forum } from "@/components/Forum";
+import { SearchWidget } from "@/components/SearchWidget";
 import ramdutLogo from "@/assets/ramdut-logo-rd-clean.jpg";
 
 const Index = () => {
@@ -79,7 +80,8 @@ const Index = () => {
             Ramdut
           </h1>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <SearchWidget onSearch={(query) => console.log('Searching:', query)} />
           <AuthSection />
           <ThemeToggle />
         </div>

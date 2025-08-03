@@ -6,7 +6,9 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signInWithGoogle: () => Promise<void>;
+  signUp: (email: string, password: string, username: string) => Promise<{ error: any }>;
+  signIn: (email: string, password: string) => Promise<{ error: any }>;
+  resetPassword: (email: string) => Promise<{ error: any }>;
   signOut: () => Promise<void>;
 }
 
@@ -43,19 +45,41 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signInWithGoogle = async () => {
+  const signUp = async (email: string, password: string, username: string) => {
     const redirectUrl = `${window.location.origin}/`;
     
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
       options: {
-        redirectTo: redirectUrl
+        emailRedirectTo: redirectUrl,
+        data: {
+          display_name: username,
+          username: username
+        }
       }
     });
     
-    if (error) {
-      console.error('Error signing in with Google:', error.message);
-    }
+    return { error };
+  };
+
+  const signIn = async (email: string, password: string) => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+    
+    return { error };
+  };
+
+  const resetPassword = async (email: string) => {
+    const redirectUrl = `${window.location.origin}/`;
+    
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: redirectUrl
+    });
+    
+    return { error };
   };
 
   const signOut = async () => {
@@ -70,7 +94,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       user,
       session,
       loading,
-      signInWithGoogle,
+      signUp,
+      signIn,
+      resetPassword,
       signOut
     }}>
       {children}

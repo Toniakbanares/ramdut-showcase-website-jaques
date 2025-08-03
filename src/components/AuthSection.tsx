@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LogOut, User } from 'lucide-react';
+import { LogOut, User, LogIn } from 'lucide-react';
+import { AuthModal } from './AuthModal';
 
 export const AuthSection = () => {
-  const { user, loading, signInWithGoogle, signOut } = useAuth();
+  const { user, loading, signOut } = useAuth();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
 
   if (loading) {
     return (
@@ -16,9 +19,17 @@ export const AuthSection = () => {
 
   if (!user) {
     return (
-      <Button onClick={signInWithGoogle} variant="outline">
-        Entrar com Google
-      </Button>
+      <>
+        <Button 
+          onClick={() => setAuthModalOpen(true)} 
+          variant="default"
+          className="bg-gradient-primary hover:opacity-90"
+        >
+          <LogIn className="w-4 h-4 mr-2" />
+          Entrar
+        </Button>
+        <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
+      </>
     );
   }
 
@@ -31,7 +42,7 @@ export const AuthSection = () => {
         </AvatarFallback>
       </Avatar>
       <span className="text-sm font-medium">
-        {user.user_metadata?.name || user.email}
+        {user.user_metadata?.display_name || user.user_metadata?.username || user.email}
       </span>
       <Button onClick={signOut} variant="ghost" size="sm">
         <LogOut className="w-4 h-4" />

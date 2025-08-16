@@ -10,6 +10,7 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
+import { FAQ } from "@/components/FAQ";
 import ramdutLogo from "@/assets/ramdut-logo-rd-clean.jpg";
 
 const Index = () => {
@@ -194,6 +195,9 @@ const Index = () => {
 
       {/* Testimonials Section */}
       <Testimonials />
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* About Section */}
       <section className="py-20">

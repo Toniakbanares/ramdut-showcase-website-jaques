@@ -49,6 +49,36 @@ export type Database = {
           },
         ]
       }
+      faqs: {
+        Row: {
+          answer: string
+          category: string
+          created_at: string
+          id: string
+          question: string
+          tags: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          answer: string
+          category?: string
+          created_at?: string
+          id?: string
+          question: string
+          tags?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          answer?: string
+          category?: string
+          created_at?: string
+          id?: string
+          question?: string
+          tags?: string[] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       posts: {
         Row: {
           content: string

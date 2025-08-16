@@ -6,6 +6,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { AuthSection } from "@/components/AuthSection";
 import { Forum } from "@/components/Forum";
 import { SearchWidget } from "@/components/SearchWidget";
+import Portfolio from "@/components/Portfolio";
+import Testimonials from "@/components/Testimonials";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
 import ramdutLogo from "@/assets/ramdut-logo-rd-clean.jpg";
 
 const Index = () => {
@@ -178,6 +182,18 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <Portfolio />
+
+      {/* Skills Section */}
+      <Skills />
+
+      {/* Experience Section */}
+      <Experience />
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* About Section */}
       <section className="py-20">

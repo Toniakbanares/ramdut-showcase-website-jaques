@@ -13,6 +13,7 @@ const galleryImages = [
     description: "A celestial figure seated on a crystal throne surrounded by rainbow light",
     image: "/lovable-uploads/63c48f32-d6b4-4cfe-ab17-ddec7f379a01.png",
     category: "Arte Digital",
+    likes: 999,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const galleryImages = [
     description: "A fierce Norse warrior trudging through snowy mountain terrain",
     image: "/lovable-uploads/16b243be-24e3-4d73-a069-784ff87f5a46.png",
     category: "Historical",
+    likes: 999,
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const galleryImages = [
     description: "A powerful lion captured mid-leap through ancient ruins",
     image: "/lovable-uploads/0c6ad175-1bd0-4685-82da-36920f28d7ab.png",
     category: "Wildlife",
+    likes: 999,
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const galleryImages = [
     description: "An otherworldly coral reef floating in space with vibrant colors",
     image: "/lovable-uploads/c65e16cf-038c-4202-b442-83ef3eee2d89.png",
     category: "Sci-Fi",
+    likes: 999,
   },
   {
     id: 5,
@@ -41,6 +45,7 @@ const galleryImages = [
     description: "Enchanted deer glowing in a mystical forest setting",
     image: "/lovable-uploads/77953295-dee2-4757-9014-9989191b9836.png",
     category: "Arte Digital",
+    likes: 999,
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ const galleryImages = [
     description: "A grotesque creature clutching a mysterious orb",
     image: "/lovable-uploads/2593f50b-592f-4e34-a05a-997fda3bdec1.png",
     category: "Horror",
+    likes: 999,
   },
   {
     id: 7,
@@ -55,6 +61,7 @@ const galleryImages = [
     description: "A silhouetted figure on an ornate throne in darkness",
     image: "/lovable-uploads/d6633bcb-8d17-4371-9b73-543fe9474b4d.png",
     category: "Dark Art",
+    likes: 999,
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ const galleryImages = [
     description: "A woman in traditional dress with cattle in a peaceful countryside",
     image: "/lovable-uploads/65fdcf64-f74f-4871-9219-7d1675a9cd79.png",
     category: "Rural Life",
+    likes: 999,
   },
   {
     id: 9,
@@ -69,6 +77,7 @@ const galleryImages = [
     description: "A roaring lion formed from storm clouds with lightning",
     image: "/lovable-uploads/93807290-a413-404b-a3c5-a408236dfc56.png",
     category: "Nature",
+    likes: 999,
   },
   {
     id: 10,
@@ -76,6 +85,7 @@ const galleryImages = [
     description: "An armored warrior among the stars with constellation patterns",
     image: "/lovable-uploads/55cf8bf4-86cd-43d3-9bf5-93b69f0b01e8.png",
     category: "Sci-Fi",
+    likes: 999,
   },
 ];
 
@@ -235,9 +245,10 @@ export default function Gallery() {
                           ⭐
                         </Button>
                       </div>
-                      <span className="text-xs text-muted-foreground">
-                        {likedImages.has(image.id) ? "Curtido" : ""}
-                      </span>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Heart className="h-3 w-3" />
+                        <span>{image.likes}</span>
+                      </div>
                     </div>
                   </div>
                 </div>

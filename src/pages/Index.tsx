@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Instagram, Facebook, Twitter, Music, Mail, Code, Lightbulb, Rocket } from "lucide-react";
+import { Github, Linkedin, Instagram, Facebook, Twitter, Music, Mail, Code, Lightbulb, Rocket, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -12,6 +12,7 @@ import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import { FAQ } from "@/components/FAQ";
 import ramdutLogo from "@/assets/ramdut-logo-rd-clean.jpg";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const socialLinks = [
@@ -86,6 +87,14 @@ const Index = () => {
           </h1>
         </div>
         <div className="flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-4">
+            <Link to="/gallery">
+              <Button variant="ghost" className="font-medium">
+                <Image className="w-4 h-4 mr-2" />
+                Galeria
+              </Button>
+            </Link>
+          </nav>
           <SearchWidget onSearch={(query) => console.log('Searching:', query)} />
           <AuthSection />
           <div className="ml-6">

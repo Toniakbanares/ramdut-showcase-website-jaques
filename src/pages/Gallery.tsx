@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Download, Heart, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 // Gallery images from uploads
 
@@ -11,7 +12,7 @@ const galleryImages = [
     title: "Divine Throne",
     description: "A celestial figure seated on a crystal throne surrounded by rainbow light",
     image: "/lovable-uploads/63c48f32-d6b4-4cfe-ab17-ddec7f379a01.png",
-    category: "Fantasy",
+    category: "Arte Digital",
   },
   {
     id: 2,
@@ -39,7 +40,7 @@ const galleryImages = [
     title: "Magical Forest",
     description: "Enchanted deer glowing in a mystical forest setting",
     image: "/lovable-uploads/77953295-dee2-4757-9014-9989191b9836.png",
-    category: "Fantasy",
+    category: "Arte Digital",
   },
   {
     id: 6,
@@ -78,11 +79,39 @@ const galleryImages = [
   },
 ];
 
-const categories = ["All", "Fantasy", "Historical", "Wildlife", "Sci-Fi", "Horror", "Dark Art", "Rural Life", "Nature"];
+const categories = ["All", "Arte Digital", "Historical", "Wildlife", "Sci-Fi", "Horror", "Dark Art", "Rural Life", "Nature"];
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [likedImages, setLikedImages] = useState<Set<number>>(new Set());
+  const [favoriteImages, setFavoriteImages] = useState<Set<number>>(new Set());
+
+  const toggleLike = (imageId: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLikedImages(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(imageId)) {
+        newSet.delete(imageId);
+      } else {
+        newSet.add(imageId);
+      }
+      return newSet;
+    });
+  };
+
+  const toggleFavorite = (imageId: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFavoriteImages(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(imageId)) {
+        newSet.delete(imageId);
+      } else {
+        newSet.add(imageId);
+      }
+      return newSet;
+    });
+  };
 
   const filteredImages = selectedCategory === "All" 
     ? galleryImages 
@@ -173,9 +202,43 @@ export default function Gallery() {
                         {image.category}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                       {image.description}
                     </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={(e) => toggleLike(image.id, e)}
+                          className={cn(
+                            "h-8 px-2",
+                            likedImages.has(image.id) && "text-red-500"
+                          )}
+                        >
+                          <Heart 
+                            className={cn(
+                              "h-4 w-4",
+                              likedImages.has(image.id) && "fill-current"
+                            )} 
+                          />
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={(e) => toggleFavorite(image.id, e)}
+                          className={cn(
+                            "h-8 px-2",
+                            favoriteImages.has(image.id) && "text-yellow-500"
+                          )}
+                        >
+                          ⭐
+                        </Button>
+                      </div>
+                      <span className="text-xs text-muted-foreground">
+                        {likedImages.has(image.id) ? "Curtido" : ""}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

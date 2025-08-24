@@ -87,9 +87,89 @@ const galleryImages = [
     category: "Sci-Fi",
     likes: 999,
   },
+  {
+    id: 11,
+    title: "Lightning Rider",
+    description: "A motorcycle rider with electric energy and a flowing cape racing through a city",
+    image: asset("lovable-uploads/e9086a9e-a4fc-40e6-aa5d-28edede42db6.png"),
+    category: "Sci-Fi",
+    likes: 999,
+  },
+  {
+    id: 12,
+    title: "Urban Speed",
+    description: "A motorcyclist racing through neon-lit city streets with motion blur",
+    image: asset("lovable-uploads/1b83e244-6306-4364-ad05-9f81bac34bc0.png"),
+    category: "Urban",
+    likes: 999,
+  },
+  {
+    id: 13,
+    title: "Hooded Thief",
+    description: "A mysterious figure in dark robes carrying a glowing artifact through a medieval marketplace",
+    image: asset("lovable-uploads/2f20b790-126b-41d2-aca5-d7a4f76f3c11.png"),
+    category: "Historical",
+    likes: 999,
+  },
+  {
+    id: 14,
+    title: "Dragon Encounter",
+    description: "A brave knight facing a mighty dragon under the moonlight",
+    image: asset("lovable-uploads/8f7c912c-bb27-49e3-a767-976a52d8dd11.png"),
+    category: "Fantasy",
+    likes: 999,
+  },
+  {
+    id: 15,
+    title: "Magic School",
+    description: "A young student practicing magic in a classroom with floating books and mystical energy",
+    image: asset("lovable-uploads/c397c664-c963-4f7c-acb3-acaf075c395a.png"),
+    category: "Fantasy",
+    likes: 999,
+  },
+  {
+    id: 16,
+    title: "Cosmic Star",
+    description: "A brilliant star radiating energy through the cosmos with stellar formations",
+    image: asset("lovable-uploads/c9173186-dcb0-4789-bfbe-e0db0d44bf31.png"),
+    category: "Space",
+    likes: 999,
+  },
+  {
+    id: 17,
+    title: "Happy Robot",
+    description: "A cheerful orange robot waving in a colorful cartoon city",
+    image: asset("lovable-uploads/e3c8e082-c80e-4b24-af46-fdff3e3c99dc.png"),
+    category: "Cartoon",
+    likes: 999,
+  },
+  {
+    id: 18,
+    title: "Silver Android",
+    description: "A futuristic silver robot with green lights in a vibrant cityscape",
+    image: asset("lovable-uploads/cf789337-4095-46a3-b520-801e155678db.png"),
+    category: "Sci-Fi",
+    likes: 999,
+  },
+  {
+    id: 19,
+    title: "Friendly Bot",
+    description: "A cute blue robot running happily through a cartoon town",
+    image: asset("lovable-uploads/68135e0b-6f09-45e7-8fb9-e13b38a9f6b8.png"),
+    category: "Cartoon",
+    likes: 999,
+  },
+  {
+    id: 20,
+    title: "Cyber Cat",
+    description: "A sleek cybernetic cat-like figure leaping through a futuristic Japanese city",
+    image: asset("lovable-uploads/eae386a4-0669-4b36-8bc3-da8472ae8bc2.png"),
+    category: "Cyberpunk",
+    likes: 999,
+  },
 ];
 
-const categories = ["All", "Arte Digital", "Historical", "Wildlife", "Sci-Fi", "Horror", "Dark Art", "Rural Life", "Nature"];
+const categories = ["All", "Arte Digital", "Historical", "Wildlife", "Sci-Fi", "Horror", "Dark Art", "Rural Life", "Nature", "Urban", "Fantasy", "Space", "Cartoon", "Cyberpunk"];
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -99,7 +179,7 @@ export default function Gallery() {
 
   useEffect(() => {
     document.title = "Galeria de Design | RAMDUT";
-    const desc = "Galeria de arte digital: suas 10 criações com filtros e visualização.";
+    const desc = "Galeria de arte digital: suas 20 criações com filtros e visualização.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
@@ -108,6 +188,7 @@ export default function Gallery() {
     }
     meta.setAttribute('content', desc);
   }, []);
+
   const toggleLike = (imageId: number, e: React.MouseEvent) => {
     e.stopPropagation();
     setLikedImages(prev => {

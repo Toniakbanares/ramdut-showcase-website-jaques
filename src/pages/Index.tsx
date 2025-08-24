@@ -87,7 +87,7 @@ const Index = () => {
           </h1>
         </div>
         <div className="flex items-center gap-6">
-          <nav className="hidden md:flex items-center gap-4">
+          <nav className="flex items-center gap-4">
             <Link to="/gallery">
               <Button variant="ghost" className="font-medium">
                 <Image className="w-4 h-4 mr-2" />

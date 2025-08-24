@@ -1,17 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Download, Heart, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 // Gallery images from uploads
-
+const asset = (p: string) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
 const galleryImages = [
   {
     id: 1,
     title: "Divine Throne",
     description: "A celestial figure seated on a crystal throne surrounded by rainbow light",
-    image: "/lovable-uploads/63c48f32-d6b4-4cfe-ab17-ddec7f379a01.png",
+    image: asset("lovable-uploads/63c48f32-d6b4-4cfe-ab17-ddec7f379a01.png"),
     category: "Arte Digital",
     likes: 999,
   },
@@ -19,7 +19,7 @@ const galleryImages = [
     id: 2,
     title: "Viking Warrior",
     description: "A fierce Norse warrior trudging through snowy mountain terrain",
-    image: "/lovable-uploads/16b243be-24e3-4d73-a069-784ff87f5a46.png",
+    image: asset("lovable-uploads/16b243be-24e3-4d73-a069-784ff87f5a46.png"),
     category: "Historical",
     likes: 999,
   },
@@ -27,7 +27,7 @@ const galleryImages = [
     id: 3,
     title: "Leaping Lion",
     description: "A powerful lion captured mid-leap through ancient ruins",
-    image: "/lovable-uploads/0c6ad175-1bd0-4685-82da-36920f28d7ab.png",
+    image: asset("lovable-uploads/0c6ad175-1bd0-4685-82da-36920f28d7ab.png"),
     category: "Wildlife",
     likes: 999,
   },
@@ -35,7 +35,7 @@ const galleryImages = [
     id: 4,
     title: "Cosmic Coral",
     description: "An otherworldly coral reef floating in space with vibrant colors",
-    image: "/lovable-uploads/c65e16cf-038c-4202-b442-83ef3eee2d89.png",
+    image: asset("lovable-uploads/c65e16cf-038c-4202-b442-83ef3eee2d89.png"),
     category: "Sci-Fi",
     likes: 999,
   },
@@ -43,7 +43,7 @@ const galleryImages = [
     id: 5,
     title: "Magical Forest",
     description: "Enchanted deer glowing in a mystical forest setting",
-    image: "/lovable-uploads/77953295-dee2-4757-9014-9989191b9836.png",
+    image: asset("lovable-uploads/77953295-dee2-4757-9014-9989191b9836.png"),
     category: "Arte Digital",
     likes: 999,
   },
@@ -51,7 +51,7 @@ const galleryImages = [
     id: 6,
     title: "Creature & Sphere",
     description: "A grotesque creature clutching a mysterious orb",
-    image: "/lovable-uploads/2593f50b-592f-4e34-a05a-997fda3bdec1.png",
+    image: asset("lovable-uploads/2593f50b-592f-4e34-a05a-997fda3bdec1.png"),
     category: "Horror",
     likes: 999,
   },
@@ -59,7 +59,7 @@ const galleryImages = [
     id: 7,
     title: "Dark Throne",
     description: "A silhouetted figure on an ornate throne in darkness",
-    image: "/lovable-uploads/d6633bcb-8d17-4371-9b73-543fe9474b4d.png",
+    image: asset("lovable-uploads/d6633bcb-8d17-4371-9b73-543fe9474b4d.png"),
     category: "Dark Art",
     likes: 999,
   },
@@ -67,7 +67,7 @@ const galleryImages = [
     id: 8,
     title: "Pastoral Scene",
     description: "A woman in traditional dress with cattle in a peaceful countryside",
-    image: "/lovable-uploads/65fdcf64-f74f-4871-9219-7d1675a9cd79.png",
+    image: asset("lovable-uploads/65fdcf64-f74f-4871-9219-7d1675a9cd79.png"),
     category: "Rural Life",
     likes: 999,
   },
@@ -75,7 +75,7 @@ const galleryImages = [
     id: 9,
     title: "Storm Lion",
     description: "A roaring lion formed from storm clouds with lightning",
-    image: "/lovable-uploads/93807290-a413-404b-a3c5-a408236dfc56.png",
+    image: asset("lovable-uploads/93807290-a413-404b-a3c5-a408236dfc56.png"),
     category: "Nature",
     likes: 999,
   },
@@ -83,7 +83,7 @@ const galleryImages = [
     id: 10,
     title: "Cosmic Warrior",
     description: "An armored warrior among the stars with constellation patterns",
-    image: "/lovable-uploads/55cf8bf4-86cd-43d3-9bf5-93b69f0b01e8.png",
+    image: asset("lovable-uploads/55cf8bf4-86cd-43d3-9bf5-93b69f0b01e8.png"),
     category: "Sci-Fi",
     likes: 999,
   },
@@ -97,6 +97,17 @@ export default function Gallery() {
   const [likedImages, setLikedImages] = useState<Set<number>>(new Set());
   const [favoriteImages, setFavoriteImages] = useState<Set<number>>(new Set());
 
+  useEffect(() => {
+    document.title = "Galeria de Design | RAMDUT";
+    const desc = "Galeria de arte digital: suas 10 criações com filtros e visualização.";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'description');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', desc);
+  }, []);
   const toggleLike = (imageId: number, e: React.MouseEvent) => {
     e.stopPropagation();
     setLikedImages(prev => {
@@ -199,7 +210,7 @@ export default function Gallery() {
               >
                 <div className="modern-card overflow-hidden">
                   <div className="aspect-square overflow-hidden">
-                    <img
+                    <img loading="lazy"
                       src={image.image}
                       alt={image.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -265,7 +276,7 @@ export default function Gallery() {
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-w-4xl w-full">
-            <img
+            <img loading="lazy"
               src={selectedImage.image}
               alt={selectedImage.title}
               className="w-full h-auto rounded-lg shadow-2xl"

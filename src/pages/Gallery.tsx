@@ -299,25 +299,24 @@ export default function Gallery() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center">
-          <Link to="/" className="mr-6">
+        <div className="container flex h-16 items-center px-4">
+          <Link to="/" className="mr-4">
             <Button variant="ghost" size="sm">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar
+              <ArrowLeft className="mr-1 sm:mr-2 h-4 w-4" />
+              <span className="hidden xs:inline">Voltar</span>
             </Button>
           </Link>
-          <div className="flex flex-1 items-center justify-between">
-            <h1 className="text-xl font-bold text-gradient">Galeria de Design</h1>
-            <nav className="flex items-center space-x-2">
-              <Button variant="outline" size="sm">
-                <Heart className="mr-2 h-4 w-4" />
-                Favoritos
+          <div className="flex flex-1 items-center justify-between gap-2">
+            <h1 className="text-lg sm:text-xl font-bold text-gradient truncate">Galeria de Design</h1>
+            <nav className="flex items-center space-x-1 sm:space-x-2">
+              <Button variant="outline" size="sm" className="hidden sm:flex">
+                <Heart className="mr-1 sm:mr-2 h-4 w-4" />
+                <span className="hidden md:inline">Favoritos</span>
               </Button>
-              <Button variant="outline" size="sm">
-                <Share2 className="mr-2 h-4 w-4" />
-                Compartilhar
+              <Button variant="outline" size="sm" className="hidden sm:flex">
+                <Share2 className="mr-1 sm:mr-2 h-4 w-4" />
+                <span className="hidden md:inline">Compartilhar</span>
               </Button>
             </nav>
           </div>
@@ -329,10 +328,10 @@ export default function Gallery() {
         <div className="hero-gradient absolute inset-0 opacity-20" />
         <div className="container relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-bold text-gradient mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gradient mb-6">
               Criações Artísticas
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 px-4">
               Uma coleção de designs únicos e imaginativos que exploram diferentes mundos e estilos visuais
             </p>
           </div>
@@ -360,7 +359,7 @@ export default function Gallery() {
       {/* Gallery Grid */}
       <section className="py-8 px-4">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {filteredImages.map((image) => (
               <div
                 key={image.id}

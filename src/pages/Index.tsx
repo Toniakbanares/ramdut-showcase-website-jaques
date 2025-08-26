@@ -74,32 +74,29 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="flex justify-between items-center p-4">
+      <header className="flex flex-col sm:flex-row justify-between items-center p-4 gap-4">
         <div className="flex items-center gap-3">
           <img 
             src={ramdutLogo} 
             alt="Ramdut Logo" 
-            className="w-12 h-12 object-contain rounded-lg"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg"
           />
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl font-bold text-gradient">
             Ramdut
           </h1>
         </div>
-        <div className="flex items-center gap-6">
-          <nav className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-6 flex-wrap">
+          <nav className="flex items-center gap-2">
             <Link to="/gallery">
-              <Button variant="ghost" className="font-medium">
-                <Image className="w-4 h-4 mr-2" />
-                Galeria
+              <Button variant="ghost" size="sm" className="font-medium">
+                <Image className="w-4 h-4 mr-1 sm:mr-2" />
+                <span className="hidden xs:inline">Galeria</span>
               </Button>
             </Link>
           </nav>
           <SearchWidget onSearch={(query) => console.log('Searching:', query)} />
           <AuthSection />
-          <div className="ml-6">
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </div>
       </header>
       
@@ -118,13 +115,13 @@ const Index = () => {
               />
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6">
               <span className="text-gradient">RAMDUT</span>
             </h1>
-            <div className="text-2xl md:text-4xl font-light mb-8 text-foreground/90">
+            <div className="text-xl sm:text-2xl md:text-4xl font-light mb-8 text-foreground/90">
               JaquesRD
             </div>
-            <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl mb-12 text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
               Programador & Engenheiro de Prompt
               <br />
               <span className="text-gradient font-semibold">Transformando ideias em soluções digitais</span>
@@ -132,7 +129,7 @@ const Index = () => {
           </div>
 
           {/* Social Media Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 px-4">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -142,7 +139,7 @@ const Index = () => {
                 className="social-btn group"
                 title={social.name}
               >
-                <social.icon className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
+                <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
               </a>
             ))}
           </div>
@@ -150,10 +147,10 @@ const Index = () => {
           {/* Contact Button */}
           <Button 
             size="lg" 
-            className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full pulse-glow"
-            onClick={() => window.open('mailto:jasu.sn@hotmail.com')}
+            className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full pulse-glow mx-4"
+            onClick={() => window.open('mailto:jasu.sn@hotmail.com', '_blank')}
           >
-            <Mail className="w-5 h-5 mr-2" />
+            <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
             Entrar em Contato
           </Button>
         </div>

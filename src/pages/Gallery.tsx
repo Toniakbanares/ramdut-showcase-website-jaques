@@ -245,9 +245,89 @@ const galleryImages = [
     category: "Historical",
     likes: 999,
   },
+  {
+    id: 30,
+    title: "Final Stand",
+    description: "A cyberpunk warrior with mech companion in a futuristic battle scene",
+    image: "/lovable-uploads/82322336-0ea4-4d67-9ffd-05bf73f007cf.png",
+    category: "Cyberpunk",
+    likes: 999,
+  },
+  {
+    id: 31,
+    title: "Spirit Onsen",
+    description: "Peaceful ghost spirits enjoying a hot spring under the northern lights",
+    image: "/lovable-uploads/2335cf55-63a9-4273-857c-4247f2a677da.png",
+    category: "Fantasy",
+    likes: 999,
+  },
+  {
+    id: 32,
+    title: "Pirate's Dream",
+    description: "A vibrant pirate ship encounter with a magical rainbow octopus and treasure",
+    image: "/lovable-uploads/129005bf-3389-499c-ba87-63d05b3d442a.png",
+    category: "Fantasy",
+    likes: 999,
+  },
+  {
+    id: 33,
+    title: "Steampunk Engineer",
+    description: "A skilled engineer working on intricate machinery in a steampunk cityscape",
+    image: "/lovable-uploads/113582e5-1cea-487e-8d2f-16e87b13bae1.png",
+    category: "Steampunk",
+    likes: 999,
+  },
+  {
+    id: 34,
+    title: "Mech Battle",
+    description: "An intense cyberpunk battle with warrior and massive mechanical units",
+    image: "/lovable-uploads/3d3e9903-392e-47ad-b883-31bc88ea8651.png",
+    category: "Cyberpunk",
+    likes: 999,
+  },
+  {
+    id: 35,
+    title: "Winter Spirits",
+    description: "Ethereal spirits floating in a traditional Japanese hot spring during winter",
+    image: "/lovable-uploads/3d28a6a1-f6fe-4e80-87e8-6ee5b4c2529c.png",
+    category: "Fantasy",
+    likes: 999,
+  },
+  {
+    id: 36,
+    title: "Dragon's Duel",
+    description: "An epic confrontation between a mighty dragon and a brave warrior",
+    image: "/lovable-uploads/13fc847f-8d63-4c07-9b0b-6ed8eb502394.png",
+    category: "Fantasy",
+    likes: 999,
+  },
+  {
+    id: 37,
+    title: "Neon Samurai",
+    description: "A traditional samurai with glowing katana in a cyberpunk Japanese street",
+    image: "/lovable-uploads/484fc714-d265-4da5-8622-ca1e0bdd036e.png",
+    category: "Cyberpunk",
+    likes: 999,
+  },
+  {
+    id: 38,
+    title: "Dragon's Domain",
+    description: "A massive dragon emerging from autumn mists with a lone traveler below",
+    image: "/lovable-uploads/278e23ba-8b44-4838-a1d5-e27f161251f6.png",
+    category: "Fantasy",
+    likes: 999,
+  },
+  {
+    id: 39,
+    title: "Forest Archer",
+    description: "A skilled archer with flowing red hair drawing her bow in an enchanted forest",
+    image: "/lovable-uploads/2d629951-fdaf-4075-a680-707b718558cb.png",
+    category: "Fantasy",
+    likes: 999,
+  },
 ];
 
-const categories = ["All", "Arte Digital", "Historical", "Wildlife", "Sci-Fi", "Horror", "Dark Art", "Rural Life", "Nature", "Urban", "Fantasy", "Space", "Cartoon", "Cyberpunk"];
+const categories = ["All", "Arte Digital", "Historical", "Wildlife", "Sci-Fi", "Horror", "Dark Art", "Rural Life", "Nature", "Urban", "Fantasy", "Space", "Cartoon", "Cyberpunk", "Steampunk"];
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -257,7 +337,7 @@ export default function Gallery() {
 
   useEffect(() => {
     document.title = "Galeria de Design | RAMDUT";
-    const desc = "Galeria de arte digital: suas 29 criações com filtros e visualização.";
+    const desc = "Galeria de arte digital: suas 39 criações com filtros e visualização.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');

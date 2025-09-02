@@ -6,9 +6,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 
 interface SearchWidgetProps {
   onSearch?: (query: string) => void;
+  searchResults?: any[];
+  isSearching?: boolean;
 }
 
-export const SearchWidget = ({ onSearch }: SearchWidgetProps) => {
+export const SearchWidget = ({ onSearch, searchResults = [], isSearching = false }: SearchWidgetProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
 
@@ -75,6 +77,31 @@ export const SearchWidget = ({ onSearch }: SearchWidgetProps) => {
                 <X className="w-4 h-4" />
               </Button>
             </div>
+
+            {isSearching && (
+              <div className="flex items-center justify-center py-4">
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                <span className="ml-2 text-sm">Buscando...</span>
+              </div>
+            )}
+
+            {searchResults.length > 0 && (
+              <div className="space-y-2 max-h-60 overflow-y-auto">
+                <p className="text-sm font-medium">Resultados encontrados:</p>
+                {searchResults.map((result: any) => (
+                  <div key={result.id} className="p-2 border rounded-lg hover:bg-muted cursor-pointer">
+                    <p className="font-medium text-sm">{result.title}</p>
+                    <p className="text-xs text-muted-foreground line-clamp-2">
+                      {result.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {!isSearching && searchResults.length === 0 && query && (
+              <p className="text-sm text-muted-foreground">Nenhum resultado encontrado.</p>
+            )}
 
             <div className="text-sm text-muted-foreground space-y-1">
               <p>• Digite palavras-chave para buscar posts e comentários</p>

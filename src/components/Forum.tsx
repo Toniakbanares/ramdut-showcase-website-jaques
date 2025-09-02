@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { MessageSquare, Plus, User } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { SearchWidget } from './SearchWidget';
 
 interface Profile {
   id: string;
@@ -43,6 +44,9 @@ export const Forum = () => {
   const [newPostContent, setNewPostContent] = useState('');
   const [newComment, setNewComment] = useState<{ [key: string]: string }>({});
   const [showNewPost, setShowNewPost] = useState(false);
+  const [searchResults, setSearchResults] = useState<Post[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetchPosts();
@@ -184,6 +188,85 @@ export const Forum = () => {
     }
   };
 
+  const handleSearch = async (query: string) => {
+    if (!query.trim()) {
+      setSearchResults([]);
+      setSearchQuery('');
+      return;
+    }
+
+    setIsSearching(true);
+    setSearchQuery(query);
+
+    try {
+      const { data: postsData, error } = await supabase
+        .from('posts')
+        .select('*')
+        .or(`title.ilike.%${query}%,content.ilike.%${query}%`)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+
+      const postsWithProfiles = await Promise.all(
+        (postsData || []).map(async (post) => {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('user_id', post.user_id)
+            .single();
+
+          const { data: commentsData } = await supabase
+            .from('comments')
+            .select('*')
+            .eq('post_id', post.id)
+            .order('created_at', { ascending: true });
+
+          const commentsWithProfiles = await Promise.all(
+            (commentsData || []).map(async (comment) => {
+              const { data: commentProfile } = await supabase
+                .from('profiles')
+                .select('*')
+                .eq('user_id', comment.user_id)
+                .single();
+
+              return {
+                ...comment,
+                profiles: commentProfile || {
+                  id: '',
+                  user_id: comment.user_id,
+                  display_name: 'Usuário',
+                  avatar_url: null
+                }
+              };
+            })
+          );
+
+          return {
+            ...post,
+            profiles: profile || {
+              id: '',
+              user_id: post.user_id,
+              display_name: 'Usuário',
+              avatar_url: null
+            },
+            comments: commentsWithProfiles
+          };
+        })
+      );
+
+      setSearchResults(postsWithProfiles);
+    } catch (error) {
+      console.error('Error searching posts:', error);
+      toast({
+        title: "Erro",
+        description: "Erro ao realizar busca.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -194,14 +277,21 @@ export const Forum = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-wrap gap-4">
         <h2 className="text-2xl font-bold">Fórum de Discussão</h2>
-        {user && (
-          <Button onClick={() => setShowNewPost(!showNewPost)} className="gap-2">
-            <Plus className="w-4 h-4" />
-            Novo Post
-          </Button>
-        )}
+        <div className="flex gap-2">
+          <SearchWidget 
+            onSearch={handleSearch}
+            searchResults={searchResults}
+            isSearching={isSearching}
+          />
+          {user && (
+            <Button onClick={() => setShowNewPost(!showNewPost)} className="gap-2">
+              <Plus className="w-4 h-4" />
+              Novo Post
+            </Button>
+          )}
+        </div>
       </div>
 
       {showNewPost && user && (
@@ -232,7 +322,15 @@ export const Forum = () => {
       )}
 
       <div className="space-y-4">
-        {posts.map((post) => (
+        {searchQuery && searchResults.length > 0 && (
+          <div className="mb-4">
+            <p className="text-sm text-muted-foreground">
+              Mostrando {searchResults.length} resultado(s) para "{searchQuery}"
+            </p>
+          </div>
+        )}
+        
+        {(searchQuery ? searchResults : posts).map((post) => (
           <Card key={post.id}>
             <CardHeader>
               <div className="flex items-center gap-3">
@@ -304,15 +402,17 @@ export const Forum = () => {
           </Card>
         ))}
 
-        {posts.length === 0 && (
+        {(searchQuery ? searchResults : posts).length === 0 && (
           <Card>
             <CardContent className="text-center py-12">
               <MessageSquare className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
               <h3 className="text-lg font-medium mb-2">Nenhum post ainda</h3>
               <p className="text-muted-foreground">
-                {user 
-                  ? "Seja o primeiro a criar um post!" 
-                  : "Faça login para participar do fórum."
+                {searchQuery 
+                  ? "Nenhum post encontrado para sua busca." 
+                  : user 
+                    ? "Seja o primeiro a criar um post!" 
+                    : "Faça login para participar do fórum."
                 }
               </p>
             </CardContent>
